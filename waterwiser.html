@@ -1,0 +1,57 @@
+<html ng-app="WaterWiserHome">
+	<head><title>Water Wiser</title></head>
+	<script src="angular-1.5.4/angular.min.js"></script>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/full.css" rel="stylesheet">
+	<style type="text/css">
+	ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+	}
+	li{
+		display: block;
+		text-align: center;
+		text-decoration: none;
+	}
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+	</style>
+	<script src="angular-1.5.4/angular.min.js"></script> 
+    <script src="angular-1.5.4/angular-route.min.js"></script>
+<body ng-controller="MyWaterWiserCtrl">
+	<div class="title" style="margin-top:10px;">
+		<ul>
+			<li><img src="images/icon.jpg" style="float:left;" width="60px" height="50px"></li>
+			<li><h4 style="text-align:center;color:#fff;font-size:20px;float:left;margin-left:25px">WATER WISER</h4></li>
+			<li>
+			<div style="float:right;">
+				<button ng-click="ShowHide()" type="submit" class="btn btn-default" style="float:left;">Settings</button>
+				<br />
+				<br />
+				<div ng-show = "IsVisible" style="border:1px solid #ccc;background-color:#005FAF">
+					<ul>
+						<li><a href="#" style="text-align:center;color:#fff;">My Account</li><li><hr></li>
+						<li><a href="#" style="text-align:center;color:#fff;">Change Password</li><li><hr></li>
+						<li><a href="#" style="text-align:center;color:#fff;">Logout</li>
+					</ul>
+				</div>
+			</div>
+			</li>
+			<li><h4 style="text-align:center;color:#fff;font-size:15px;float:right;margin-right:40px">Welcome {{ sharedData }}</h4></li>
+		</ul>	
+	</div>
+	<script src="WaterWiser_Home.js"></script>
+</body>
+</html>

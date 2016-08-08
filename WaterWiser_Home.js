@@ -55,47 +55,51 @@
 });
 	myWaterWiserHomeApp.directive('ngTree', function() {
 return {
-restrict: 'E',
-transclude: true,
- 
-controller: function($scope) {
- 
-$scope.showHeadings = function(title){
-title.active = !title.active;
-};
- 
-$scope.headings = [
-{
-management: "User Management",
-action: [
-{state: "New User"},
-{state: "Edit User"}
-]
-},
-{
-management: "Water Management",
-action: [
-{state: "New"},
-{state: "Edit"}
-]
-},
-{
-management: "Chemical Management",
-action: [
-{state: "New"},
-{state: "Edit"}
-]
-},
-{
-management: "BioManagement",
-action: [
-{state: "New"},
-{state: "Edit"}
-]
-}
-];
-},
-templateUrl: 'treeview.html'
-};
-});
 
+controller: function($scope) {
+	
+		$scope.IsNewUser=false;
+	$scope.showHeadings = function(title){
+	title.active = !title.active;
+	};
+	$scope.nodeSelected = function(subtitle,title){
+	title.active = !title.active;
+	var str="Is "+subtitle.state;
+	alert(str);
+	if(subtitle.state == "New User")
+		$scope.IsNewUser = true;
+	//var IsValue = str.replace(/\s+/g, '');
+	};
+	$scope.headings = [
+	{
+	management: "User Management",
+	action: [
+	{state: "New User"},
+	{state: "Edit User"}
+	]
+	},
+	{
+	management: "Water Management",
+	action: [
+	{state: "New"},
+	{state: "Edit"}
+	]
+	},
+	{
+	management: "Chemical Management",
+	action: [
+	{state: "New"},
+	{state: "Edit"}
+	]
+	},
+	{
+	management: "BioManagement",
+	action: [
+	{state: "New"},
+	{state: "Edit"}
+	]
+	}
+	];
+	},
+	};
+	});

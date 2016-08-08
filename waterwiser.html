@@ -63,7 +63,7 @@ header{
 	</style>
 	<script src="angular-1.5.4/angular.min.js"></script> 
     <script src="angular-1.5.4/angular-route.min.js"></script>
-<body ng-controller="MyWaterWiserCtrl">
+<body ng-controller="MyWaterWiserCtrl" ng-init="IsNewUser=false">
 <div class="container">
 	<header>
 	<div class="title">
@@ -80,11 +80,24 @@ header{
 	</div>
 	</header>
 	<nav>
-		<ng-tree></ng-tree>
+		<ng-tree>
+		<ul>
+		<li style="list-style-type:disc;list-style-position: inside;" ng-repeat="title in headings" ng-click="showHeadings(title)">
+			<span>{{title.management}}</span>
+			<ul>
+				<li style="list-style-type:circle;list-style-position: inside;" ng-repeat="subtitle in title.action" ng-show="title.active" ng-click='nodeSelected(subtitle,title)'>
+				<span>{{subtitle.state}}</span>
+				</li>
+			</ul>
+		</li>
+	</ul>
+		</ng-tree>
 	</nav>
 	<article>
   <h1>Content</h1>
-  <p>Graphs should come here !</p>
+  <div ng-show="IsNewUser">
+	<p>Graphs should come here !</p>
+  </div>
 </article>
 </div>
 	<script src="WaterWiser_Home.js"></script>

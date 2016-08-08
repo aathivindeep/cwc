@@ -1,14 +1,14 @@
-<html>
+<html ng-app="WaterWiserHome">
 <head>
 <script  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.0/angular.min.js"></script>
 <script type="text/javascript"></script>
 </head>
-<body>	
+<body ng-controller="TreeViewCtrl">	
 	<ul>
 		<li style="list-style-type:disc;list-style-position: inside;" ng-repeat="title in headings" ng-click="showHeadings(title)">
 			<span>{{title.management}}</span>
 			<ul>
-				<li style="list-style-type:circle;list-style-position: inside;" ng-repeat="subtitle in title.action" ng-show="title.active">
+				<li style="list-style-type:circle;list-style-position: inside;" ng-repeat="subtitle in title.action" ng-show="title.active" ng-click='nodeSelected(subtitle,title)'>
 				<span>{{subtitle.state}}</span>
 				</li>
 			</ul>
